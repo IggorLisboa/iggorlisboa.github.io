@@ -1,73 +1,102 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
-<title>Teste site</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Romualdo 11</title>
+    </head>
+    <body >
 
-<!-- Header -->
-<header class="w3-display-container w3-content w3-center" style="max-width:1500px">
-  <img class="w3-image" src="iggorlisboa.github.io/photographer.jpg" alt="Me" width="1500" height="600">
-  <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center">
-    <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">JANE DOE</h1>
-    <h5 class="w3-hide-large" style="white-space:nowrap">JANE DOE</h5>
-    <h3 class="w3-hide-medium w3-hide-small">PHOTOGRAPHER</h3>
-  </div>
-  
-  <!-- Navbar (placed at the bottom of the header image) -->
-  <div class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small" style="bottom:-16px">
-    <a href="#" class="w3-bar-item w3-button">Home</a>
-    <a href="#portfolio" class="w3-bar-item w3-button">Portfolio</a>
-    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-  </div>
-</header>
+        <div style="text-align: center">
 
-<!-- Navbar on small screens -->
-<div class="w3-center w3-light-grey w3-padding-16 w3-hide-large w3-hide-medium">
-<div class="w3-bar w3-light-grey">
-  <a href="#" class="w3-bar-item w3-button">Home</a>
-  <a href="#portfolio" class="w3-bar-item w3-button">Portfolio</a>
-  <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-</div>
-</div>
-<!-- Page content -->
-<div class="w3-content w3-padding-large w3-margin-top" id="portfolio">
+            
+            
+            <input style="padding: 7px;
+                   border-radius: 10px;
+                   border: solid 1px #2196F3;
+                   color: #3F51B5;
+                   font-size: 18px;
+                   text-align: center;
+                   font-weight: 700;
+                   outline: none;" 
+                   placeholder="ID vídeo" id="id_video">
+            <button onclick="iniciar()" style="padding: 7px;
+                    border-radius: 10px;
+                    border: solid 1px #2196F3;
+                    color: #ffffff;
+                    font-size: 18px;
+                    text-align: center;
+                    font-weight: 700;
+                    outline: none;
+                    background: #03A9F4;
+                    cursor: pointer;">Iniciar</button>
+        </div>
+        <br>
 
-  <!-- Images (Portfolio) -->
-  <img src="iggorlisboa.github.io/ocean.jpg" alt="Ocean" class="w3-image" width="1000" height="500">
-  <img src="iggorlisboa.github.io/ocean2.jpg" alt="Ocean II" class="w3-image w3-margin-top" width="1000" height="500">
-  <img src="iggorlisboa.github.io/falls2.jpg" alt="Falls" class="w3-image w3-margin-top" width="1000" height="500">
-  <img src="iggorlisboa.github.io/mountainskies.jpg" alt="Skies" class="w3-image w3-margin-top" width="1000" height="500">
-  <img src="iggorlisboa.github.io/mountains2.jpg" alt="Mountains" class="w3-image w3-margin-top" width="1000" height="500">
+        <div style="display: flex;flex-wrap: wrap;" id="v"></div>
+        <div style="display: flex;flex-wrap: wrap;" id="aviso"></div>
 
-  <!-- Contact -->
-  <div class="w3-light-grey w3-padding-large w3-padding-32 w3-margin-top" id="contact">
-    <h3 class="w3-center">Contact</h3>
-    <hr>
-    <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus.</p>
 
-    <form action="/action_page.php" target="_blank">
-      <div class="w3-section">
-        <label>Name</label>
-        <input class="w3-input w3-border" type="text" required name="Name">
-      </div>
-      <div class="w3-section">
-        <label>Email</label>
-        <input class="w3-input w3-border" type="text" required name="Email">
-      </div>
-      <div class="w3-section">
-        <label>Message</label>
-        <input class="w3-input w3-border" required name="Message">
-      </div>
-      <button type="submit" class="w3-button w3-block w3-dark-grey">Send</button>
-    </form><br>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 
-  </div>
+        <script type='text/javascript'>
+            window.onload = function () {
 
-<!-- End page content -->
-</div>
 
-</body>
+
+
+
+            };
+
+
+            function iniciar() {
+                reiniciar();
+                setInterval(function () {
+                    reiniciar();
+                }, 1000 * 70);
+            }
+
+            function mostrarAviso() {
+                setTimeout(function () {
+                    document.getElementById('aviso').innerHTML = '<h3 style="margin: 31px auto;">Reiniciando em 1 minuto</h3>';
+                }, 4000);
+            }
+
+
+            function criarVideos() {
+                var tempo = 0;
+                var incrementos = [100, 100, 100, 100, 100];
+                for (var t in incrementos) {
+                    tempo += Number(incrementos[t] * 2);
+                    console.log(tempo);
+                    setTimeout(function () {
+                        var iframe = document.createElement('iframe');
+                        iframe.style.display = "block";
+                        iframe.style.width = "200";
+                        iframe.style.height = "200";
+                        var video = document.getElementById('id_video').value;
+                        iframe.src = 'https://www.youtube.com/embed/'+video+'?autoplay=1&mute=1&enablejsapi=1';
+//                        iframe.src = 'http://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1&mute=1&enablejsapi=1';
+                        document.getElementById('v').appendChild(iframe);
+                    }, tempo);
+
+                }
+            }
+
+
+            function reiniciar() {
+                document.getElementById('v').innerHTML = "";
+                criarVideos();
+                mostrarAviso();
+            }
+
+        </script>
+
+
+
+
+    </body>
 </html>
